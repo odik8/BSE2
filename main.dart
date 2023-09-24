@@ -1,8 +1,10 @@
 import 'dart:io';
+import 'dart:math';
 
 void main() {
   print('<o/');
   print(heloUser('Ilon Mask'));
+  print(shuffleList([123, 44, 1, 2, '213123', true]));
 }
 
 heloUser(String name) {
@@ -23,5 +25,15 @@ heloUser(String name) {
 
   // Выводим приветствие на экран
   return greeting + ' ' + name;
-  ;
+}
+
+List<T> shuffleList<T>(List<T> list) {
+  final random = Random();
+  for (int i = list.length - 1; i > 0; i--) {
+    int j = random.nextInt(i + 1);
+    final temp = list[i];
+    list[i] = list[j];
+    list[j] = temp;
+  }
+  return list;
 }
