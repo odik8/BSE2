@@ -5,6 +5,7 @@ void main() {
   print('<o/');
   print(heloUser('Ilon Mask'));
   print(shuffleList([123, 44, 1, 2, '213123', true]));
+  print(getRandomEmail());
 }
 
 heloUser(String name) {
@@ -36,4 +37,15 @@ List<T> shuffleList<T>(List<T> list) {
     list[j] = temp;
   }
   return list;
+}
+
+String getRandomEmail() {
+  final random = Random();
+  final String chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+  final String domain = 'example.com';
+  String email = '';
+  for (int i = 0; i < 10; i++) {
+    email += chars[random.nextInt(chars.length)];
+  }
+  return email + '@' + domain;
 }
